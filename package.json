@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development node --watch index.js",
-    "test": "cross-env NODE_ENV=test node --test",
+    "test": "cross-env NODE_ENV=test node --test --test-concurrency=1",
     "lint": "eslint ."
   },
   "keywords": [],
@@ -14,9 +14,12 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "mongoose": "^9.2.1"
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.1",
+    "mongoose-unique-validator": "^6.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

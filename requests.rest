@@ -1,13 +1,51 @@
-### create a blog
-POST http://localhost:3003/api/blogs
+### create a user (only once)
+POST http://localhost:3003/api/users
 Content-Type: application/json
 
 {
-    "title": "My first blog",
-    "author": "Marcio",
-    "url": "https://fullstackopen.com/en/",
-    "likes": 5
+  "username": "marcio",
+  "name": "Marcio",
+  "password": "sekret"
+}
+
+### login (copy the token from the response)
+POST http://localhost:3003/api/login
+Content-Type: application/json
+
+{
+  "username": "marcio",
+  "password": "sekret"
+}
+
+### create a blog (requires token)
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer <TOKEN_HERE>
+
+{
+  "title": "My first blog",
+  "author": "Marcio",
+  "url": "https://fullstackopen.com/en/",
+  "likes": 5
 }
 
 ### get all blogs
 GET http://localhost:3003/api/blogs
+
+### get all blogs
+GET http://localhost:3003/api/blogs
+
+### delete a blog (only creator can delete)
+DELETE http://localhost:3003/api/blogs/<BLOG_ID_HERE>
+Authorization: Bearer <TOKEN_HERE>
+
+### update a blog (likes, etc.)
+PUT http://localhost:3003/api/blogs/<BLOG_ID_HERE>
+Content-Type: application/json
+
+{
+  "title": "My first blog (edited)",
+  "author": "Marcio",
+  "url": "https://fullstackopen.com/en/",
+  "likes": 999
+}
