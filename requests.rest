@@ -49,3 +49,6 @@ Content-Type: application/json
   "url": "https://fullstackopen.com/en/",
   "likes": 999
 }
+
+### Reset test database
+POST http://localhost:3003/api/testing/reset
